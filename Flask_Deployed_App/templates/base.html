@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS and Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css">
+
+    <title>{% block pagetitle %}{% endblock pagetitle %}</title>
+
+    <style>
+        .bg {
+            background-image: url("/static/images/background.jpeg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #f2fef5; /* Fallback color */
+        }
+
+        body {
+            background-color: #f2fef5;
+            height: 100vh;
+        }
+
+        label {
+            background-color: rgb(2, 46, 15);
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        #file-chosen {
+            margin-left: 0.3rem;
+            font-family: sans-serif;
+        }
+
+        /* New Dynamic Footer Styles */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #042b0d, #06502e, #06763f, #04341c);
+            background-size: 400% 400%;
+            animation: gradientFlow 10s ease infinite;
+            box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hover-scale {
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .bttn-unite:disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* GitHub Button */
+        .btn-github {
+            display: grid;
+            place-items: center;
+            background: #e3edf7;
+            padding: 1.4em;
+            border-radius: 10px;
+            box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .btn-github:hover {
+            box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translateY(0.5em);
+        }
+
+        .btn-github svg {
+            transition: transform 0.5s;
+        }
+
+        .btn-github:hover svg {
+            transform: scale(0.9);
+            fill: #333333;
+        }
+
+        /* Animated Buttons for Quick Links */
+        .btn {
+            width: 130px;
+            height: 40px;
+            font-size: 1.1em;
+            cursor: pointer;
+            background-color: #171717;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: all .4s;
+        }
+
+        .btn:hover {
+            border-radius: 5px;
+            transform: translateY(-10px);
+            box-shadow: 0 7px 0 -2px #f85959,
+                0 15px 0 -4px #39a2db,
+                0 16px 10px -3px #39a2db;
+        }
+
+        .btn:active {
+            transition: all 0.2s;
+            transform: translateY(-5px);
+            box-shadow: 0 2px 0 -2px #f85959,
+                0 8px 0 -4px #39a2db,
+                0 12px 10px -3px #39a2db;
+        }
+
+        /* 🔥 Animated Navbar Button Styles */
+.btn-nav {
+    font-weight: 600;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: white;
+    border-radius: 30px;
+    padding: 0.4rem 1rem;
+    transition: all 0.35s ease-in-out;
+}
+
+.btn-nav:hover {
+    background-color: #39a2db;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(57, 162, 219, 0.3);
+}
+
+.btn-nav:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+/* Base button style */
+.social-btn {
+    border: none;
+    display: block;
+    position: relative;
+    padding: 0.7em 2.4em;
+    font-size: 18px;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* GitHub Button */
+.github-btn {
+    color: #24292e;
+}
+.github-btn span {
+    border: 4px solid #24292e;
+}
+.github-btn span::before {
+    background: #eee;
+}
+.github-btn:hover span::before {
+    background: #24292e;
+}
+.github-btn:active span::before {
+    background: #1b1f23;
+}
+.github-btn:hover {
+    color: white;
+}
+
+/* LinkedIn Button */
+.linkedin-btn {
+    color: #0077b5;
+}
+.linkedin-btn span {
+    border: 4px solid #0077b5;
+}
+.linkedin-btn span::before {
+    background: #eaf4fc;
+}
+.linkedin-btn:hover span::before {
+    background: #0077b5;
+}
+.linkedin-btn:active span::before {
+    background: #005983;
+}
+.linkedin-btn:hover {
+    color: white;
+}
+
+/* Gmail Button */
+.gmail-btn {
+    color: #d93025;
+}
+.gmail-btn span {
+    border: 4px solid #d93025;
+}
+.gmail-btn span::before {
+    background: #fcebea;
+}
+.gmail-btn:hover span::before {
+    background: #d93025;
+}
+.gmail-btn:active span::before {
+    background: #a62a1f;
+}
+.gmail-btn:hover {
+    color: white;
+}
+
+/* 🌟 Animated Logo Text */
+.logo-animate {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #21ff7f, #05a957, #024924);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glowText 2s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: transform 0.5s ease;
+}
+
+@keyframes glowText {
+    0% {
+        opacity: 0;
+        letter-spacing: 0.1em;
+        transform: translateY(-10px);
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 0.2em;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 0.05em;
+        transform: translateY(0);
+    }
+}
+
+.logo-animate span {
+    animation: spinLeaf 3s infinite linear;
+    display: inline-block;
+}
+
+@keyframes spinLeaf {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+    </style>
+</head>
+
+<body>
+<!-- 🌱 Enhanced Navbar with Dynamic Buttons -->
+<nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color:#05380b;">
+    <div class="container">
+        <a class="navbar-brand fw-bold logo-animate" href="/" style="font-size: 1.8rem;">
+            <span>🌿</span> FluroCare
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav gap-2">
+                <li class="nav-item">
+                    <a class="btn btn-nav" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-nav" href="/index">AI Engine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-nav" href="/market">Supplements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-nav" href="/contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    {% block body %}{% endblock body %}
+
+    <!-- Dynamic Footer -->
+    <footer class="footer-basic mt-5 gradient-bg text-light">
+        <div class="container py-5">
+            <div class="row justify-content-between">
+                <!-- About -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-uppercase fw-bold">About</h5>
+                    <p class="small">Empowering plant health with AI-powered analysis and smart tools for farmers.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                    <div class="d-grid gap-3">
+                        <button class="btn" onclick="simulateLoad(this, '/index')">AI Engine</button>
+                        <button class="btn" onclick="simulateLoad(this, '/contact')">Contact Us</button>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-uppercase fw-bold">Contact</h5>
+                    <p><a href="mailto:flurocare@gmail.com" class="text-light text-decoration-none">flurocare@gmail.com</a></p>
+                    <p><a href="https://github.com/nihanth6721/FluroCare" target="_blank" class="text-light text-decoration-none">GitHub</a></p>
+                </div>
+
+                <!-- Social Media -->
+                <!-- Follow Us -->
+<div class="col-md-3 mb-4">
+    <h5 class="text-uppercase fw-bold">Follow Us</h5>
+    <div class="d-flex flex-column gap-3">
+        <a href="https://github.com/nihanth6721/FluroCare" target="_blank" style="text-decoration: none;">
+            <button class="social-btn github-btn">GitHub<span></span></button>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" style="text-decoration: none;">
+            <button class="social-btn linkedin-btn">LinkedIn<span></span></button>
+        </a>
+        <a href="mailto:flurocare@gmail.com" style="text-decoration: none;">
+            <button class="social-btn gmail-btn">Gmail<span></span></button>
+        </a>
+    </div>
+</div>
+
+            </div>
+            <hr class="bg-light" />
+            <p class="text-center small mb-0">&copy; 2025 FluroCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function simulateLoad(btn, url) {
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`;
+            btn.disabled = true;
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1200);
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

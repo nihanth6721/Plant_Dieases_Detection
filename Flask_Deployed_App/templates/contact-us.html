@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    body {
+        background: #f5f7fa;
+    }
+
+    h1.display-4 {
+        font-weight: 800;
+        font-size: 3rem;
+        animation: fadeSlideDown 1s ease-out;
+    }
+
+    @keyframes fadeSlideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        border: none;
+        border-radius: 1rem;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        background: #fff;
+    }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .card .text-muted {
+        color: #7f8c8d !important;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        width: 50px;
+        height: 50px;
+        background-color: #eaf1f7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.15);
+        background-color: #d0e6fa;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .social-icons img {
+        width: 24px;
+        height: 24px;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Meet Our Team</h1>
+        <p class="lead text-muted">Passionate minds building the future together.</p>
+    </div>
+
+    <div class="row g-4">
+        {% set team = [
+            {
+                'name': 'Nihanth Reddy',
+                'desc': 'A passionate software engineer focused on scalable solutions.',
+                'email': 'jnihanthreddy@gmail.com',
+                'github': 'https://github.com/nihanth6721/dashboard',
+                'linkedin': 'https://www.linkedin.com/in/j-nihanth-reddy-9a2411308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
+            },
+            {
+                'name': 'Kanchi Abhilash',
+                'desc': 'A dedicated software engineer with a knack for problem-solving.',
+                'email': 'kanchi.abhilash180@gmail.com',
+                'github': 'https://github.com/kanchiabhilash',
+                'linkedin': 'https://www.linkedin.com/in/kanchiabhilash'
+            },
+            {
+                'name': 'Sharon Darla',
+                'desc': 'Web developer and cloud enthusiast turning ideas into apps.',
+                'email': 'sharondarla17@gmail.com',
+                'github': 'https://github.com/sharon',
+                'linkedin': 'https://www.linkedin.com/in/sharon-darla-1a31b925a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
+            },
+            {
+                'name': 'Aapeksha Reddy',
+                'desc': 'AI explorer and backend wizard obsessed with clean code.',
+                'email': 'aapekshavadhi@gmail.com',
+                'github': 'https://github.com/aapeksha-reddy',
+                'linkedin': 'https://in.linkedin.com/in/aapeksha-reddy-728ba1359'
+            }
+        ] %}
+
+        {% for member in team %}
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm h-100 p-4 text-center">
+                <h3 class="mb-2">{{ member.name }}</h3>
+                <p class="text-muted small mb-3">{{ member.desc }}</p>
+                <h6 class="mb-2 text-uppercase text-secondary">Connect with me</h6>
+                <div class="social-icons">
+                    <a href="mailto:{{ member.email }}" title="Email">
+                        <img src="https://github.com/nihanth6721/FluroCare/blob/main/images/gmail.png?raw=true" alt="Email">
+                    </a>
+                    <a href="{{ member.github }}" target="_blank" title="GitHub">
+                        <img src="https://github.com/nihanth6721/FluroCare/blob/main/images/github.png?raw=true" alt="GitHub">
+                    </a>
+                    <a href="{{ member.linkedin }}" target="_blank" title="LinkedIn">
+                        <img src="https://github.com/nihanth6721/FluroCare/blob/main/images/linkedin.png?raw=true" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

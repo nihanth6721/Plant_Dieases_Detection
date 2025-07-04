@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Supplement Market
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    body {
+        background: linear-gradient(to right, #dff1e1, #f7f7f7);
+        overflow-x: hidden;
+    }
+
+    .glass-card {
+        box-sizing: border-box;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .glass-card:hover {
+        transform: scale(1.03);
+        border: 1px solid black;
+    }
+
+    .glass-card:active {
+        transform: scale(0.98) rotateZ(1.5deg);
+    }
+
+    .buy-btn {
+        border: none;
+        padding: 0.6em 1.5em;
+        font-size: 16px;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        color: #0f5132;
+        border: 2px solid #198754;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .buy-btn::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background-color: #198754;
+        transition: left 0.4s;
+        z-index: -1;
+    }
+
+    .buy-btn:hover::before {
+        left: 0;
+    }
+
+    .buy-btn:hover {
+        color: white;
+    }
+    .animated-bounce-title {
+    color: #111; /* Dark title */
+    animation: bounceInUp 1s ease-out;
+  }
+
+  @keyframes bounceInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+    80% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<br>
+<div class="row mb-5 text-center text-white">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4 animated-bounce-title">
+            <b>🛒 Supplements 🛒</b>
+          </h1>                 
+        <p class="lead" style="font-weight: 500;color: black;">Buy Supplements & Fertilizer at one place</p>
+    </div>
+</div>
+
+<div class="row p-3">
+    {% for index in range(0, supplement_name | length) %}
+    {% if index != 4 %}
+    <div class="col-md-4 mb-4">
+        <div class="glass-card h-100">
+            {% if index==3 or index==5 or index==7 or index==11 or index==15 or index==18 or index==20 or
+            index==23 or index==24 or index==25 or index==28 or index==38 %}
+            <h5>Fertilizer <b style="color: green;">(Healthy)</b></h5>
+            {% else %}
+            <h5>Supplements <b style="color: red;">(Diseased)</b></h5>
+            {% endif %}
+
+            <img src="{{ supplement_image[index] }}" width="200" height="250" style="border-radius: 10px;" class="my-3">
+
+            <h6>For {{ disease[index] }}</h6>
+            <p>{{ supplement_name[index] }}</p>
+
+            <a target="_blank" href="{{ buy[index] }}">
+                <button class="buy-btn">Buy Product</button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock body %}
