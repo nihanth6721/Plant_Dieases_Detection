@@ -4,9 +4,6 @@
 
 Detect plant diseases using leaf images and AI! 🍃📷
 
-<img src="project_images/cover.png" alt="cover" width="100%" />
-
----
 
 ## 📋 Table of Contents
 
@@ -23,7 +20,12 @@ Detect plant diseases using leaf images and AI! 🍃📷
 * [Contact](#-contact)
 
 ---
+📸 Project Overview
+Below are a few screenshots showing how the system works from UI to prediction results:
 
+<div align="center"> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.08_27d0684b.jpg" alt="screenshot1" width="45%" /> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.08_2952c012.jpg" alt="screenshot2" width="45%" /> <br><br> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.08_62a93a29.jpg" alt="screenshot3" width="45%" /> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.08_88ee2cf0.jpg" alt="screenshot4" width="45%" /> <br><br> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.09_7adce6fb.jpg" alt="screenshot5" width="45%" /> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.41.09_a7e77b92.jpg" alt="screenshot6" width="45%" /> <br><br> <img src="https://github.com/nihanth6721/Plant_Dieases_Detection/blob/main/project_images/WhatsApp%20Image%202025-05-20%20at%2018.43.29_976e7c7b.jpg" alt="screenshot7" width="50%" /> </div>
+
+-----
 ## 🔍 About
 
 A machine learning app that classifies leaf images to detect if a plant is **Healthy** or has a **Disease**.
