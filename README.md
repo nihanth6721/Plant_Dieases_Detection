@@ -1,7 +1,10 @@
 
+
 # 🌿 Plant Diseases Detection
 
 Detect plant diseases using leaf images and AI! 🍃📷
+
+<img src="project_images/cover.png" alt="cover" width="100%" />
 
 ---
 
@@ -26,6 +29,8 @@ Detect plant diseases using leaf images and AI! 🍃📷
 A machine learning app that classifies leaf images to detect if a plant is **Healthy** or has a **Disease**.
 Perfect for gardeners, farmers, and plant lovers.
 
+<img src="project_images/about.png" alt="about-image" width="100%" />
+
 ---
 
 ## 🎯 Features
@@ -35,6 +40,8 @@ Perfect for gardeners, farmers, and plant lovers.
 * 🔄 Easy demo with a simple command like `streamlit run app.py`
 * 🖼️ Outputs predictions + confidence scores + disease highlights
 
+<img src="project_images/features.png" alt="features-image" width="100%" />
+
 ---
 
 ## 🛠 Tech Stack
@@ -43,6 +50,8 @@ Perfect for gardeners, farmers, and plant lovers.
 * **TensorFlow** / **Keras** or **PyTorch**
 * **Streamlit** or **Flask** (for web UI)
 * **OpenCV**, **NumPy**, **Pandas**
+
+<img src="project_images/tech_stack.png" alt="tech-stack-image" width="100%" />
 
 ---
 
@@ -77,6 +86,8 @@ streamlit run app.py
 * **Model file**: `model_weights.h5`
 * **Usage**: The app loads this model to predict leaf health instantly
 
+<img src="project_images/model_architecture.png" alt="model-architecture" width="100%" />
+
 ---
 
 ## 📊 Results
@@ -88,7 +99,9 @@ streamlit run app.py
 
 * **Overall Accuracy**: \~97.5%
 * 🔁 **Sample UI**: Upload a leaf photo → display result + confidence
-  *(Screenshots can be added here)*
+
+<img src="project_images/prediction.png" alt="prediction-ui" width="100%" />
+<img src="project_images/confidence_output.png" alt="confidence-score" width="100%" />
 
 ---
 
@@ -122,16 +135,16 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
 ## 📫 Contact
 
 * **GitHub**: [nihanth6721](https://github.com/nihanth6721)
-* **Email**: [jnihanthreddy@gmail.com](mailto:jnihanthreddy@gmail.com) (optional)
+* **Email**: [jnihanthreddy@gmail.com](mailto:jnihanthreddy@gmail.com)
 
 ---
 
 ## ⚠️ Tips & Acknowledgements
 
-* 🌱 Inspired by research like CNN-based plant disease detection ([github.com][1], [arxiv.org][2], [huggingface.co][3], [github.com][4], [github.com][5], [bijeshshrestha.github.io][6], [kandi.openweaver.com][7])
+* 🌱 Inspired by research like CNN-based plant disease detection (\[github.com]\[1], \[arxiv.org]\[2], \[huggingface.co]\[3], \[github.com]\[4], \[github.com]\[5], \[bijeshshrestha.github.io]\[6], \[kandi.openweaver.com]\[7])
 * Thanks to the **PlantVillage** dataset and **Streamlit** team!
 * Feel free to reach out if you need help training your own model 😊
 
 ---
 
-### 🎉 Enjoy exploring and improving plant health 
+### 🎉 Enjoy exploring and improving plant health!
