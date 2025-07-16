@@ -122,7 +122,7 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
 ## 📫 Contact
 
 * **GitHub**: [nihanth6721](https://github.com/nihanth6721)
-* **Email**: [your\_email@example.com](mailto:your_email@example.com) (optional)
+* **Email**: [jnihanthreddy@gmail.com](mailto:jnihanthreddy@gmail.com) (optional)
 
 ---
 
